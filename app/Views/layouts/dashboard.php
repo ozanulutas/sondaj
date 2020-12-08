@@ -106,6 +106,20 @@
             border-color: transparent;
             box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
         }
+
+        /*
+        * Table
+        */
+
+        .table {
+            table-layout: fixed;
+        }
+
+        .ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 
     <title>Kontrol Paneli</title>
@@ -114,11 +128,11 @@
 
     <!-- Header -->
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Kızılkaya Sondaj</a>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 font-weight-bold" href="/">Kızılkaya Sondaj</a>
+        
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link text-light font-weight-bold" href="/auth/logout">Oturumu Kapat</a>
             </li>
         </ul>
     </nav>
@@ -129,42 +143,53 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="/admin/dashboard"> 
                             <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
+                            Dashboard 
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/hizmet"><!-- active -->
                             <span data-feather="file"></span>
                             Hizmetler
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">
                             <span data-feather="shopping-cart"></span>
                             Ürünler
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/hakkimizda/edit">
                             <span data-feather="users"></span>
                             Hakkımızda
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/Iletisim/edit">
                             <span data-feather="bar-chart-2"></span>
                             İletişim
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/admin/aciklama/edit">
+                            <span data-feather="bar-chart-2"></span>
+                            Sayfa Açıklamaları
+                            </a>
+                        </li>
+                        <a class="nav-link" href="/admin/kullanici/edit">
+                            <span data-feather="bar-chart-2"></span>
+                            Hesap Ayarları
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="/">
                             <span data-feather="layers"></span>
                             Ana Sayfaya Dön
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>

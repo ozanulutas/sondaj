@@ -15,6 +15,8 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use App\Models\IletisimModel;
+
 
 class BaseController extends Controller
 {
@@ -27,6 +29,8 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+
+	protected $iletisim;
 
 	/**
 	 * Constructor.
@@ -41,6 +45,9 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
+		
+		$model = new IletisimModel();
+		$this->iletisim = $model->get()->getRow();
 	}
 
 }

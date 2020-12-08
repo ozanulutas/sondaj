@@ -31,4 +31,5 @@ class View extends \CodeIgniter\Config\View
 	 * any callable. Can be single or tag pair.
 	 */
 	public $plugins = [];
+
 }

@@ -10,6 +10,17 @@
             --jumbotron-padding-y: 3rem;
         }
 
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr  auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+
+        }
+
         .jumbotron {
             padding-top: var(--jumbotron-padding-y);
             padding-bottom: var(--jumbotron-padding-y);
@@ -43,20 +54,23 @@
         footer p {
             margin-bottom: .25rem;
         }
+
+        .img-header {
+            max-height: 80px;
+        }
     </style>
     <title>Kızılkaya Sondaj</title>
 </head>
-<body>
-
+<body class="bg-light">
     <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/">Kızılkaya Sondaj</a>
+            <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" class="img-header"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item"> <!-- active -->
                         <a class="nav-link" href="/">Ana Sayfa</a>
                     </li>
@@ -65,9 +79,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/hizmet">Hizmetlerimiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ürünlerimiz</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Iletisim">İletişim</a>
@@ -87,52 +98,47 @@
     <!-- Footer -->
     <footer class="text-light bg-dark">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-lg-4 col-xl-3">
-                    <h5>About</h5>
+            <div class="row d-flex justify-content-between">
+                <!-- Site Haritası -->
+                <div class="col-md-4 col-lg-2 col-xl-2">
+                    <h5>Site Haritası</h5>
+                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-light">Ana Sayfa</a></li>
+                        <li><a href="/hakkimizda" class="text-light">Hakkımızda</a></li>
+                        <li><a href="/hizmet" class="text-light">Hizmetlerimiz</a></li>
+                        <li><a href="/Iletisim" class="text-light">İletişim</a></li>
+                    </ul>
+                </div>
+                <!-- Hakkımızda -->
+                <div class="col-md-4 col-lg-4 col-xl-3">
+                    <h5>Hakkımızda</h5>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                     <p class="mb-0">
                         Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
                     </p>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                    <h5>Informations</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <ul class="list-unstyled">
-                        <li><a href="" class="text-light">Link 1</a></li>
-                        <li><a href="" class="text-light">Link 2</a></li>
-                        <li><a href="" class="text-light">Link 3</a></li>
-                        <li><a href="" class="text-light">Link 4</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
-                    <h5>Others links</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <ul class="list-unstyled">
-                        <li><a href="" class="text-light">Link 1</a></li>
-                        <li><a href="" class="text-light">Link 2</a></li>
-                        <li><a href="" class="text-light">Link 3</a></li>
-                        <li><a href="" class="text-light">Link 4</a></li>
-                    </ul>
-                </div>
-
+                <!-- İletişim -->
                 <div class="col-md-4 col-lg-3 col-xl-3">
-                    <h5>Contact</h5>
+                    <h5>İletişim</h5>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-home mr-2"></i> My company</li>
-                        <li><i class="fa fa-envelope mr-2"></i> email@example.com</li>
-                        <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
-                        <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+                        <li>
+                            <i class="fa fa-home mr-2"></i> 
+                            <?= $iletisim->baslik; ?> <br>
+                            <?= nl2br($iletisim->adres); ?>
+                        </li>
+                        <li><i class="fa fa-envelope mr-2"></i> <?= $iletisim->email; ?></li>
+                        <li><i class="fa fa-phone mr-2"></i> <?= $iletisim->telefon; ?></li>                        
                     </ul>
                 </div>
+
                 <div class="col-12 copyright mt-3">
                     <p class="float-left">
-                        <a href="#" class="text-light">Back to top</a>
+                        <a href="#" class="text-light">Başa Dön</a>
                     </p>
-                    <p class="text-right text-muted"><a href="/dashboard">Admin</a>
+                    <p class="text-right text-muted"><a href="/auth/login">Admin</a>
                 </div>
             </div>
         </div>
