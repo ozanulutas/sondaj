@@ -5,63 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-        :root {
-            --jumbotron-padding-y: 3rem;
-        }
-
-        body {
-            display: grid;
-            grid-template-rows: auto 1fr  auto;
-        }
-
-        body,
-        html {
-            height: 100%;
-
-        }
-
-        .jumbotron {
-            padding-top: var(--jumbotron-padding-y);
-            padding-bottom: var(--jumbotron-padding-y);
-            margin-bottom: 0;
-            background-color: #fff;
-        }
-        @media (min-width: 768px) {
-            .jumbotron {
-                padding-top: calc(var(--jumbotron-padding-y) * 2);
-                padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-            }
-        }
-
-        .jumbotron p:last-child {
-            margin-bottom: 0;
-        }
-
-        .jumbotron-heading {
-            font-weight: 300;
-        }
-
-        .jumbotron .container {
-            max-width: 40rem;
-        }
-
-        footer {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        footer p {
-            margin-bottom: .25rem;
-        }
-
-        .img-header {
-            max-height: 80px;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/main.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <title>Kızılkaya Sondaj</title>
 </head>
 <body class="bg-light">
+    <?php $uri = service('uri'); ?>
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -69,19 +17,32 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <!-- active -->
-                        <a class="nav-link" href="/">Ana Sayfa</a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item <?= $uri->getSegment(1) == '' ? 'active' : null; ?>"> <!-- active -->
+                        <a class="nav-link text-primary" href="/">ANA SAYFA</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
+                    <li class="nav-item <?= $uri->getSegment(1) == 'hakkimizda' ? 'active' : null; ?>">
+                        <a class="nav-link text-primary" href="/hakkimizda">HAKKIMIZDA</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/hizmet">Hizmetlerimiz</a>
+                    <li class="nav-item <?= $uri->getSegment(1) == 'hizmet' ? 'active' : null; ?>">
+                        <a class="nav-link text-primary" href="/hizmet">HİZMETLERİMİZ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Iletisim">İletişim</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/hizmet" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                        </a>
+                        <div class="dropdown-menu fade-in" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item <?= $uri->getSegment(1) == 'Iletisim' ? 'active' : null; ?>">
+                        <a class="nav-link text-primary" href="/Iletisim">İLETİŞİM</a>
                     </li>
                 </ul>
             </div>

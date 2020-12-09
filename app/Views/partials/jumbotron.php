@@ -1,6 +1,6 @@
-<section class="jumbotron text-center">
+<section class="jumbotron text-center bg-dark">
     <div class="container">
-        <h1 class="jumbotron-heading"><?= $jumboBaslik ?></h1>
-        <p class="lead text-muted"><?= $jumboAciklama ?? '' ?></p>
+        <h1 class="jumbotron-heading text-white"><?= $jumboBaslik ?></h1>
+        <p class="lead text-light"><?= $jumboAciklama ?? '' ?></p>
     </div>
 </section>
