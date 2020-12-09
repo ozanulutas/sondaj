@@ -110,13 +110,10 @@
                         <li><a href="/Iletisim" class="text-light">İletişim</a></li>
                     </ul>
                 </div>
-                <!-- Hakkımızda -->
+                
                 <div class="col-md-4 col-lg-4 col-xl-3">
-                    <h5>Hakkımızda</h5>
+                    <h2>Kızılkaya Sondaj</h2>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <p class="mb-0">
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                    </p>
                 </div>
 
                 <!-- İletişim -->

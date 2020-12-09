@@ -15,7 +15,7 @@ class Iletisim extends BaseController
 		$data['iletisim'] = $this->iletisim;
 
 		$model = new AciklamaModel();
-		$data['jumboAciklama'] = $model->where('sayfa', 'Hakkımızda')->get()->getRow()->aciklama;
+		$data['jumboAciklama'] = $model->where('sayfa', 'İletişim')->get()->getRow()->aciklama;
 
 		/*
 		if($this->request->getMethod() == 'post') {

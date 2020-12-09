@@ -1,11 +1,13 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<?= $this->include('partials/jumbotron.php'); ?>
+<?= $this->include('partials/slider.php'); ?>
+
 
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row">        
+        <h5 class="mb-5"><?= nl2br($aciklama) ?></h5 class="mb-5">   
+        <div class="row">     
             <?php foreach($hizmetler as $hizmet) : ?>     
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">

@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\HizmetModel;
+use App\Models\SliderModel;
 use App\Models\AciklamaModel;
 
 class Home extends BaseController
@@ -14,7 +15,10 @@ class Home extends BaseController
 		$data['hizmetler'] = $model->get()->getResult();
 
 		$model = new AciklamaModel();
-		$data['jumboAciklama'] = $model->where('sayfa', 'Hakkımızda')->get()->getRow()->aciklama;
+		$data['aciklama'] = $model->where('sayfa', 'Ana Sayfa')->get()->getRow()->aciklama;
+
+		$model = new SliderModel();
+		$data['sliderlar'] = $model->get()->getResult();
 
 		return view('anasayfa/index', $data);
 	}

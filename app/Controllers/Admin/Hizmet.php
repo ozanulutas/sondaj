@@ -107,10 +107,12 @@ class Hizmet extends BaseController
 				if($resim->getName()) {
 					$_POST['resim'] = $this->resimUpload($resim);
 
-					$eskiResim = IMAGE_PATH . $data['hizmet']->resim;
-					$eskiResim = substr($eskiResim, 1);
-					if(file_exists($eskiResim))
+					if($data['hizmet']->resim) {
+						$eskiResim = IMAGE_PATH . $data['hizmet']->resim;
+						$eskiResim = substr($eskiResim, 1);
+						if(file_exists($eskiResim))
 						unlink($eskiResim);
+					}
 				}
 				else {
 					$_POST['resim'] = $data['hizmet']->resim;
@@ -132,7 +134,13 @@ class Hizmet extends BaseController
 	{
 		$model = new HizmetModel();
 		$hizmet = $model->find($id);
+		
 		if($hizmet) {
+			if($hizmet['resim']) {
+				$resim = IMAGE_PATH . $hizmet['resim'];
+				$resim = substr($resim, 1);
+				unlink($resim);
+			}
 			$model->delete($id);
 
 			session()->setFlashdata('success', 'Hizmet başarıyla silindi.');

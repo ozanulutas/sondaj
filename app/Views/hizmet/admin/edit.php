@@ -4,7 +4,7 @@
 <?= $this->include('partials/dashboard_baslik.php') ?>
 
 <?php if(isset($validation)) : ?>
-    <div class="col-12">
+    <div class="col-xl-9">
         <div class="alert alert-danger" role="alert">
             <?= $validation->listErrors() ?>
         </div>
@@ -29,7 +29,7 @@
     <div class="form-group">
         <h6><label for="resim">Resim</label></h6>
         <input type="file" accept="image/*" class="form-control-file" name="resim">
-        <img src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>">
+        <img src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" class="img-fluid mt-2">
     </div>
     <button type="submit"  class="btn btn-success btn-block">Kaydet</button>
 </form>

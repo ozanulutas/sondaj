@@ -14,7 +14,7 @@ class Hizmet extends BaseController
 		$data['hizmetler'] = $model->get()->getResult();
 
 		$model = new AciklamaModel();
-		$data['jumboAciklama'] = $model->where('sayfa', 'Hakkımızda')->get()->getRow()->aciklama;
+		$data['jumboAciklama'] = $model->where('sayfa', 'Hizmetler')->get()->getRow()->aciklama;
 
 		return view('hizmet/index', $data);
     }

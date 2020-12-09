@@ -120,6 +120,11 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .td-img {
+            height: 50px; 
+            /* width: 20px; */
+        }
     </style>
 
     <title>Kontrol Paneli</title>
@@ -177,6 +182,12 @@
                             <a class="nav-link" href="/admin/aciklama/edit">
                             <span data-feather="bar-chart-2"></span>
                             Sayfa Açıklamaları
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/slider">
+                            <span data-feather="bar-chart-2"></span>
+                            Slider
                             </a>
                         </li>
                         <a class="nav-link" href="/admin/kullanici/edit">
