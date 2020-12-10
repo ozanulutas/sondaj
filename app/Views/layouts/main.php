@@ -89,13 +89,24 @@
                         <li><i class="fa fa-envelope mr-2"></i> <?= $global['iletisim']->email; ?></li>
                         <li><i class="fa fa-phone mr-2"></i> <?= $global['iletisim']->telefon; ?></li>                        
                     </ul>
+                    <!-- Sosyal Medya -->
+                    <div class="sosyalmedya">
+                        <?php foreach($global['sosyalMedya'] as $sm) : ?>
+                            <a href="<?= $sm->link ?>" class="mr-1" target="_blank">
+                                <span class="fa fa-<?= $sm->platform ?> grow"></span>
+                            </a>                
+                        <?php endforeach; ?> 
+                    </div>
                 </div>
 
                 <div class="col-12 copyright mt-3">
                     <p class="float-left">
                         <a href="#" class="text-light"># Başa Dön</a>
                     </p>
-                    <p class="text-right text-muted"><a href="/auth/login">Admin</a>
+                    
+                    <p class="text-right text-muted">
+                        <a href="/auth/login">Admin</a>
+                    </p>
                 </div>
             </div>
         </div>

@@ -54,6 +54,10 @@ footer p {
     margin-bottom: .25rem;
 }
 
+.nav-item:not(:last-child) {
+    margin-right: 1.5rem;
+}
+
 /**
 * Header
 */
@@ -71,6 +75,10 @@ footer p {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0; 
+}
+
+.dropdown-item:hover {
+    color:dodgerblue;
 }
 
 /**
@@ -122,6 +130,50 @@ footer p {
 .card {
 } 
 
+/*
+* Sosyal Medya
+*/
+
+.sosyalmedya .fa {
+    padding: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: none important!;
+    border-radius: 50%;
+}
+
+footer .sosyalmedya .fa {
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none important!;
+    border-radius: 50%;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    width: 3rem;
+}
+
+footer .fa-facebook {
+    width: 2rem
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
 /**
 * Animasyon
 */
@@ -133,6 +185,9 @@ footer p {
     from{opacity:0} to{opacity:1}
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
 /**
 * Media Query
 */
@@ -142,10 +197,6 @@ footer p {
     .dropdown-menu {
         border:none;
         background-color: inherit;
-    }
-
-    .dropdown-item:hover {
-        color:dodgerblue;
     }
 
 }

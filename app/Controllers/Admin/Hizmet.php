@@ -102,17 +102,10 @@ class Hizmet extends BaseController
 				$model = new HizmetModel();
 
 				$resim = $this->request->getFile('resim');
-				// $_POST['resim'] = $resim->getName() ? $this->resimUpload($resim) : $data['hizmet']->resim;
 
 				if($resim->getName()) {
 					$_POST['resim'] = $this->resimUpload($resim);
-
-					if($data['hizmet']->resim) {
-						$eskiResim = IMAGE_PATH . $data['hizmet']->resim;
-						$eskiResim = substr($eskiResim, 1);
-						if(file_exists($eskiResim))
-						unlink($eskiResim);
-					}
+					$this->eskiResimSil($data['hizmet']->resim);
 				}
 				else {
 					$_POST['resim'] = $data['hizmet']->resim;
@@ -147,15 +140,6 @@ class Hizmet extends BaseController
 		}
 
 		return redirect()->to('/admin/hizmet');
-	}
-
-
-	private function resimUpload($resim)
-	{
-		if($resim->isValid() && !$resim->hasMoved()) {
-			$resim->move('.' . IMAGE_PATH);
-			return $resim->getName();
-		}
 	}
 
 	//--------------------------------------------------------------------

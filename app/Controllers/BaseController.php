@@ -63,4 +63,24 @@ class BaseController extends Controller
 		$this->global['sosyalMedya'] = $model->get()->getResult();
 	}
 
+
+	protected function resimUpload($resim)
+	{
+		if($resim->isValid() && !$resim->hasMoved()) {
+			$resim->move('.' . IMAGE_PATH);
+			return $resim->getName();
+		}
+	}
+
+
+	protected function eskiResimSil($resim)
+	{
+		if($resim) {
+			$eskiResim = IMAGE_PATH . $resim;
+			$eskiResim = substr($eskiResim, 1);
+			if(file_exists($eskiResim))
+			unlink($eskiResim);
+		}
+	}
+
 }

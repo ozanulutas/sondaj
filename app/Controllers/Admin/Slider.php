@@ -98,13 +98,7 @@ class Slider extends BaseController
 
 				if($resim->getName()) {
 					$_POST['resim'] = $this->resimUpload($resim);
-
-					if($data['slider']->resim) {
-						$eskiResim = IMAGE_PATH . $data['slider']->resim;
-						$eskiResim = substr($eskiResim, 1);
-						if(file_exists($eskiResim))
-						unlink($eskiResim);
-					}
+					$this->eskiResimSil($data['slider']->resim);
 				}
 				else {
 					$_POST['resim'] = $data['slider']->resim;
@@ -145,13 +139,13 @@ class Slider extends BaseController
 	}
 
 
-	private function resimUpload($resim)
-	{
-		if($resim->isValid() && !$resim->hasMoved()) {
-			$resim->move('.' . IMAGE_PATH);
-			return $resim->getName();
-		}
-	}
+	// private function resimUpload($resim)
+	// {
+	// 	if($resim->isValid() && !$resim->hasMoved()) {
+	// 		$resim->move('.' . IMAGE_PATH);
+	// 		return $resim->getName();
+	// 	}
+	// }
 
 	//--------------------------------------------------------------------
 
