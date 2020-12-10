@@ -37,10 +37,10 @@
             <div class="card bg-light mb-3">
                 <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i> Adres</div>
                 <div class="card-body">
-                    <p><?= nl2br($iletisim->adres) ?></p>
+                    <p><?= nl2br($global['iletisim']->adres) ?></p>
                     
-                    <p>Email : <?= $iletisim->email ?></p>
-                    <p>Tel: <?= $iletisim->telefon ?></p>
+                    <p>Email : <?= $global['iletisim']->email ?></p>
+                    <p>Tel: <?= $global['iletisim']->telefon ?></p>
 
                 </div>
 

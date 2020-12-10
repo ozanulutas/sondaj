@@ -6,10 +6,10 @@ class Auth extends BaseController
 {
 	public function login()
 	{
+		$data['global'] = $this->global;
+
         if(session()->get('isLoggedIn'))
             return redirect()->to('/admin/hizmet');
-
-        $data['iletisim'] = $this->iletisim;
         
         helper(['form']);
 

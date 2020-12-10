@@ -9,7 +9,10 @@
     <title>Kızılkaya Sondaj</title>
 </head>
 <body class="bg-light">
-    <?php $uri = service('uri'); ?>
+    <?php 
+    $uri = service('uri');    
+    ?>
+    
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -25,19 +28,13 @@
                     <li class="nav-item <?= $uri->getSegment(1) == 'hakkimizda' ? 'active' : null; ?>">
                         <a class="nav-link text-primary" href="/hakkimizda">HAKKIMIZDA</a>
                     </li>
-                    <li class="nav-item <?= $uri->getSegment(1) == 'hizmet' ? 'active' : null; ?>">
-                        <a class="nav-link text-primary" href="/hizmet">HİZMETLERİMİZ</a>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/hizmet" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-primary <?= $uri->getSegment(1) == 'hizmet' ? 'active' : null; ?>" href="/hizmet" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+                        HİZMETLERİMİZ
                         </a>
                         <div class="dropdown-menu fade-in" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <?= $this->include('partials/hizmetMenu.php'); ?>                          
                         </div>
                     </li>
                     
@@ -72,9 +69,11 @@
                     </ul>
                 </div>
                 
+                <!-- Açıklama -->
                 <div class="col-md-4 col-lg-4 col-xl-3">
-                    <h2>Kızılkaya Sondaj</h2>
+                    <h4>Kızılkaya Sondaj</h4>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <p><?= $global['footerAciklama']->aciklama; ?></p>
                 </div>
 
                 <!-- İletişim -->
@@ -84,17 +83,17 @@
                     <ul class="list-unstyled">
                         <li>
                             <i class="fa fa-home mr-2"></i> 
-                            <?= $iletisim->baslik; ?> <br>
-                            <?= nl2br($iletisim->adres); ?>
+                            <?= $global['iletisim']->baslik; ?> <br>
+                            <?= nl2br($global['iletisim']->adres); ?>
                         </li>
-                        <li><i class="fa fa-envelope mr-2"></i> <?= $iletisim->email; ?></li>
-                        <li><i class="fa fa-phone mr-2"></i> <?= $iletisim->telefon; ?></li>                        
+                        <li><i class="fa fa-envelope mr-2"></i> <?= $global['iletisim']->email; ?></li>
+                        <li><i class="fa fa-phone mr-2"></i> <?= $global['iletisim']->telefon; ?></li>                        
                     </ul>
                 </div>
 
                 <div class="col-12 copyright mt-3">
                     <p class="float-left">
-                        <a href="#" class="text-light">Başa Dön</a>
+                        <a href="#" class="text-light"># Başa Dön</a>
                     </p>
                     <p class="text-right text-muted"><a href="/auth/login">Admin</a>
                 </div>

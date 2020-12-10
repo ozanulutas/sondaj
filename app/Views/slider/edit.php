@@ -11,17 +11,17 @@
     </div>
 <?php endif; ?>
 
-<?php 
-if(isset($validation)) {
-    
-    echo "<pre>";
-    echo print_r($validation->listErrors());
-    echo "</pre>";
-}
-?>
-
 <form method="post" enctype="multipart/form-data" class="col-xl-9">
     <input type="hidden" name="id" value="<?= set_value('id', $slider->id); ?>">
+
+    <div class="form-group">
+        <h6><label for="baslik">Başlık</label></h6>
+        <input type="text" name="baslik" class="form-control" value="<?= set_value('baslik', $slider->baslik ?? '') ?>">
+    </div>
+    <div class="form-group">
+        <h6><label for="metin">Metin</label></h6>
+        <textarea class="form-control" name="metin" rows="3"><?= set_value('metin', $slider->metin ?? '') ?></textarea>
+    </div>
     <div class="form-group">
         <h6><label for="resim">Resim</label></h6>
         <input type="file" accept="image/*" class="form-control-file" name="resim">

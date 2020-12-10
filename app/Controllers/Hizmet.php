@@ -8,7 +8,7 @@ class Hizmet extends BaseController
 	public function index()
 	{
 		$data['jumboBaslik'] = 'Hizmetlerimiz';
-		$data['iletisim'] = $this->iletisim;
+		$data['global'] = $this->global;
 		
 		$model = new HizmetModel();
 		$data['hizmetler'] = $model->get()->getResult();
@@ -22,7 +22,7 @@ class Hizmet extends BaseController
 
     public function show($id)
 	{	
-		$data['iletisim'] = $this->iletisim;
+		$data['global'] = $this->global;
 			
 		$model = new HizmetModel();
 		$data['hizmet'] = $model->where('id', $id)->get()->getRow();	

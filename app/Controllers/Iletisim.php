@@ -9,10 +9,7 @@ class Iletisim extends BaseController
 	public function index()
 	{
 		$data['jumboBaslik'] = 'İletişim';
-
-		// $model = new IletisimModel();
-		// $data['iletisim'] = $model->get()->getRow();
-		$data['iletisim'] = $this->iletisim;
+		$data['global'] = $this->global;
 
 		$model = new AciklamaModel();
 		$data['jumboAciklama'] = $model->where('sayfa', 'İletişim')->get()->getRow()->aciklama;

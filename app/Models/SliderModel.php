@@ -7,5 +7,5 @@ class SliderModel extends Model
     protected $table      = 'slider';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['resim'];
+    protected $allowedFields = ['resim', 'baslik', 'metin'];
 }

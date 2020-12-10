@@ -103,6 +103,26 @@ footer p {
 }
 
 /**
+* Ana Sayfa
+*/
+
+.carousel-caption {
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+ .card-img-top {
+
+}
+
+.card-img-wrapper {
+    max-height: 10rem;
+    overflow: hidden;
+}
+
+.card {
+} 
+
+/**
 * Animasyon
 */
 
@@ -117,11 +137,15 @@ footer p {
 * Media Query
 */
 
-@media (max-width:767px) {
+@media (max-width:990px) {
 
     .dropdown-menu {
         border:none;
         background-color: inherit;
+    }
+
+    .dropdown-item:hover {
+        color:dodgerblue;
     }
 
 }

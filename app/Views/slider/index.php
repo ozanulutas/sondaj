@@ -22,7 +22,7 @@
         <tbody>
             <?php foreach($sliderlar as $slider) : ?>
             <tr>
-                <td class="align-middle ellipsis"><img src="<?= IMAGE_PATH . $slider->resim ?>" alt="Resim Yok" class="td-img"></td>
+                <td class="align-middle ellipsis"><img src="<?= IMAGE_PATH . $slider->resim ?>" alt="Resim Yok" class="td-img img-thumbnail"></td>
                 
                 <td class="align-middle">                    
                     <a href="/admin/slider/edit/<?= $slider->id ?>" class="btn btn-primary btn-sm">Düzenle</a>

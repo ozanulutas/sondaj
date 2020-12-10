@@ -6,12 +6,18 @@ use App\Controllers\BaseController;
 class Slider extends BaseController
 {
 	private $rules = [
-		// 'metin' => [
-		// 	'rules' => 'max_length[255]',
-		// 	'errors' => [
-		// 		'max_length' => 'Metin alanına en fazla 255 karakter yazabilirsiniz.'
-		// 	]
-		// ],
+		'baslik' => [
+			'rules' => 'max_length[35]',
+			'errors' => [
+				'max_length' => 'Başlık alanına en fazla 35 karakter yazabilirsiniz.'
+			]
+		],
+		'metin' => [
+			'rules' => 'max_length[255]',
+			'errors' => [
+				'max_length' => 'Metin alanına en fazla 255 karakter yazabilirsiniz.'
+			]
+		],
 		'resim' => [
 			'rules' => 'uploaded[resim]|is_image[resim]|max_size[resim,2048]',
 			'errors' => [
@@ -80,11 +86,11 @@ class Slider extends BaseController
 
 		if($this->request->getMethod() == 'post') {
 
-			// if(! $this->validate($this->rules)) {
-			// 	$data['validation'] = $this->validator;
+			if(! $this->validate($this->rules)) {
+				$data['validation'] = $this->validator;
 
-			// } 
-			// else {
+			} 
+			else {
 				
 				$model = new SliderModel();
 
@@ -109,7 +115,7 @@ class Slider extends BaseController
 				session()->setFlashdata('success', 'Slide başarıyla güncellendi.');
 				return redirect()->to('/admin/slider');
 				
-			// }
+			}
 		}
 
 		return view('slider/edit', $data);

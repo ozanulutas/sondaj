@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\IletisimModel;
+// use App\Models\SosyalMedyaModel;
 use App\Controllers\BaseController;
 
 class Iletisim extends BaseController
@@ -13,6 +14,10 @@ class Iletisim extends BaseController
 
 		$model = new IletisimModel();
 		$data['iletisim'] = $model->get()->getRow();
+
+		// $model = new SosyalMedyaModel();
+		// $data['sosyalMedya'] = $model->get()->getResult();
+		$data['sosyalMedyalar'] = $this->global['sosyalMedya'];
 
 
 		if($this->request->getMethod() == 'post') {

@@ -5,131 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-        body {
-            font-size: .875rem;
-        }
-
-        .feather {
-            width: 16px;
-            height: 16px;
-            vertical-align: text-bottom;
-        }
-
-        /*
-        * Sidebar
-        */
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100; /* Behind the navbar */
-            padding: 48px 0 0; /* Height of navbar */
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: .5rem;
-            overflow-x: hidden;
-            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-        }
-
-        @supports ((position: -webkit-sticky) or (position: sticky)) {
-            .sidebar-sticky {
-                position: -webkit-sticky;
-                position: sticky;
-            }
-        }
-
-        .sidebar .nav-link {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .sidebar .nav-link .feather {
-            margin-right: 4px;
-            color: #999;
-        }
-
-        .sidebar .nav-link.active {
-            color: #007bff;
-        }
-
-        .sidebar .nav-link:hover .feather,
-        .sidebar .nav-link.active .feather {
-            color: inherit;
-        }
-
-        .sidebar-heading {
-            font-size: .75rem;
-            text-transform: uppercase;
-        }
-
-        /*
-        * Content
-        */
-
-        [role="main"] {
-            padding-top: 48px; /* Space for fixed navbar */
-        }
-
-        /*
-        * Navbar
-        */
-
-        .navbar-brand {
-            padding-top: .75rem;
-            padding-bottom: .75rem;
-            font-size: 1rem;
-            background-color: rgba(0, 0, 0, .25);
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-        }
-
-        .navbar .form-control {
-            padding: .75rem 1rem;
-            border-width: 0;
-            border-radius: 0;
-        }
-
-        .form-control-dark {
-            color: #fff;
-            background-color: rgba(255, 255, 255, .1);
-            border-color: rgba(255, 255, 255, .1);
-        }
-
-        .form-control-dark:focus {
-            border-color: transparent;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-        }
-
-        /*
-        * Table
-        */
-
-        .table {
-            table-layout: fixed;
-        }
-
-        .ellipsis {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .td-img {
-            height: 50px; 
-            /* width: 20px; */
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/dashboard.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
 
     <title>Kontrol Paneli</title>
 </head>
 <body>
+    <?php 
+    $uri = service('uri');    
+    ?>
 
     <!-- Header -->
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -148,59 +31,41 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="/admin/dashboard"> 
-                            <span data-feather="home"></span>
-                            Dashboard 
-                            </a>
-                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/hizmet"><!-- active -->
+                            <a class="nav-link <?= $uri->getSegment(2) == 'hizmet' ? 'active' : null; ?>" href="/admin/hizmet"><!-- active -->
                             <span data-feather="file"></span>
                             Hizmetler
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Ürünler
-                            </a>
-                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/hakkimizda/edit">
-                            <span data-feather="users"></span>
-                            Hakkımızda
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/Iletisim/edit">
+                            <a class="nav-link  <?= $uri->getSegment(2) == 'slider' ? 'active' : null; ?>" href="/admin/slider">
                             <span data-feather="bar-chart-2"></span>
-                            İletişim
+                            Slider
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/aciklama/edit">
+                            <a class="nav-link  <?= $uri->getSegment(2) == 'aciklama' ? 'active' : null; ?>" href="/admin/aciklama/edit">
                             <span data-feather="bar-chart-2"></span>
                             Sayfa Açıklamaları
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/slider">
-                            <span data-feather="bar-chart-2"></span>
-                            Slider
+                            <a class="nav-link  <?= $uri->getSegment(2) == 'hakkimizda' ? 'active' : null; ?>" href="/admin/hakkimizda/edit">
+                            <span data-feather="users"></span>
+                            Hakkımızda
                             </a>
                         </li>
-                        <a class="nav-link" href="/admin/kullanici/edit">
+                        <li class="nav-item">
+                            <a class="nav-link  <?= $uri->getSegment(2) == 'Iletisim' ? 'active' : null; ?>" href="/admin/Iletisim/edit">
+                            <span data-feather="bar-chart-2"></span>
+                            İletişim
+                            </a>
+                        </li>
+                        <a class="nav-link  <?= $uri->getSegment(2) == 'kullanici' ? 'active' : null; ?>" href="/admin/kullanici/edit">
                             <span data-feather="bar-chart-2"></span>
                             Hesap Ayarları
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="/">
-                            <span data-feather="layers"></span>
-                            Ana Sayfaya Dön
-                            </a>
-                        </li> -->
                     </ul>
                 </div>
             </nav>

@@ -4,7 +4,7 @@
 <?= $this->include('partials/dashboard_baslik.php') ?>
 
 <?php if(isset($validation)) : ?>
-    <div class="col-12">
+    <div class="col-xl-9">
         <div class="alert alert-danger" role="alert">
             <?= $validation->listErrors() ?>
         </div>

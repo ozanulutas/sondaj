@@ -4,13 +4,15 @@
 <?= $this->include('partials/dashboard_baslik.php') ?>
 
 <?php if(session()->get('success')) : ?>
-    <div class="alert alert-success" role="alert">
-        <?= session()->get('success') ?>
+    <div class="col-xl-9">
+        <div class="alert alert-success" role="alert">
+            <?= session()->get('success') ?>
+        </div>
     </div>
 <?php endif; ?>
 
 <?php if(isset($validation)) : ?>
-    <div class="col-12">
+    <div class="col-xl-9">
         <div class="alert alert-danger" role="alert">
             <?= $validation->listErrors() ?>
         </div>

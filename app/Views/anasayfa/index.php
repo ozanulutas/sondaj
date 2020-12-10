@@ -11,7 +11,10 @@
             <?php foreach($hizmetler as $hizmet) : ?>     
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" alt="Card image cap">
+                    <div class="card-img-wrapper">
+                       
+                        <img class="card-img-top" src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" alt="Card image cap">
+                    </div>
                     <div class="card-body">
                         <h2><?= $hizmet->baslik ?></h2>
                         <p class="card-text"><?= $hizmet->aciklama ?></p>

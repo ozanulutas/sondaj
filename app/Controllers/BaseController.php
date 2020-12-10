@@ -15,6 +15,10 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+
+use App\Models\SosyalMedyaModel;
+use App\Models\AciklamaModel;
+use App\Models\HizmetModel;
 use App\Models\IletisimModel;
 
 
@@ -30,7 +34,7 @@ class BaseController extends Controller
 	 */
 	protected $helpers = [];
 
-	protected $iletisim;
+	protected $global = [];
 
 	/**
 	 * Constructor.
@@ -47,7 +51,16 @@ class BaseController extends Controller
 		// $this->session = \Config\Services::session();
 		
 		$model = new IletisimModel();
-		$this->iletisim = $model->get()->getRow();
+		$this->global['iletisim'] = $model->get()->getRow();
+
+		$model = new HizmetModel();
+		$this->global['hizmetMenu'] = $model->get()->getResult();
+
+		$model = new AciklamaModel();
+		$this->global['footerAciklama'] = $model->where('sayfa', 'footer')->get()->getRow();
+
+		$model = new SosyalMedyaModel();
+		$this->global['sosyalMedya'] = $model->get()->getResult();
 	}
 
 }

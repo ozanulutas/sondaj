@@ -9,7 +9,7 @@ class Home extends BaseController
 	public function index()
 	{
 		$data['jumboBaslik'] = 'Ana Sayfa';
-		$data['iletisim'] = $this->iletisim;
+		$data['global'] = $this->global;
 
 		$model = new HizmetModel();
 		$data['hizmetler'] = $model->get()->getResult();
@@ -19,6 +19,8 @@ class Home extends BaseController
 
 		$model = new SliderModel();
 		$data['sliderlar'] = $model->get()->getResult();
+
+		
 
 		return view('anasayfa/index', $data);
 	}

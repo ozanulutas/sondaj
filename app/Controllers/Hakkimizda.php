@@ -8,7 +8,7 @@ class Hakkimizda extends BaseController
 	public function index()
 	{
 		$data['jumboBaslik'] = 'Hakkımızda';
-		$data['iletisim'] = $this->iletisim;
+		$data['global'] = $this->global;
 
 		$model = new HakkimizdaModel();
 		$data['hakkimizda'] = $model->get()->getRow();	

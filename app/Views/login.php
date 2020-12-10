@@ -27,7 +27,7 @@
                     <?php endif; ?>
                     <div class="row">
                         <div class="col-12 col-sm-4">
-                            <button type="submit" class="btn btn-primary">Giriş</button>
+                            <button type="submit" class="btn btn-primary btn-block">Giriş</button>
                         </div>
                     </div>
                 </form>
