@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row featurette">
         <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" alt="Generic placeholder image">
+            <img class="featurette-image img-fluid img-thumbnail mx-auto" src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" alt="Generic placeholder image">
         </div>
         <div class="col-md-7 order-md-2">
             <!-- <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2> -->

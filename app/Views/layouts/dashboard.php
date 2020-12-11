@@ -46,7 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link  <?= $uri->getSegment(2) == 'aciklama' ? 'active' : null; ?>" href="/admin/aciklama/edit">
                             <span data-feather="bar-chart-2"></span>
-                            Sayfa Açıklamaları
+                            Sayfa Başlık Açıklamaları
                             </a>
                         </li>
                         <li class="nav-item">

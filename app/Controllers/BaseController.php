@@ -18,7 +18,7 @@ use CodeIgniter\Controller;
 
 use App\Models\SosyalMedyaModel;
 use App\Models\AciklamaModel;
-use App\Models\HizmetModel;
+use App\Models\HizmetlerModel;
 use App\Models\IletisimModel;
 
 
@@ -53,7 +53,7 @@ class BaseController extends Controller
 		$model = new IletisimModel();
 		$this->global['iletisim'] = $model->get()->getRow();
 
-		$model = new HizmetModel();
+		$model = new HizmetlerModel();
 		$this->global['hizmetMenu'] = $model->get()->getResult();
 
 		$model = new AciklamaModel();
@@ -81,6 +81,15 @@ class BaseController extends Controller
 			if(file_exists($eskiResim))
 			unlink($eskiResim);
 		}
+	}
+
+
+	protected function resimManipule($resim, $x, $y)
+	{
+		$image = \Config\Services::image()
+				->withFile('.' . IMAGE_PATH . $resim)
+				->fit($x, $y, 'center')
+				->save('.' . IMAGE_PATH . $resim);
 	}
 
 }

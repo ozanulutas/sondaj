@@ -114,21 +114,39 @@ footer p {
 * Ana Sayfa
 */
 
-.carousel-caption {
-    text-shadow: black 0.1em 0.1em 0.2em;
-}
-
  .card-img-top {
 
 }
 
-.card-img-wrapper {
+/* .card-img-wrapper {
     max-height: 10rem;
     overflow: hidden;
-}
+} */
 
 .card {
 } 
+
+/**
+* Sayfa İçerik
+*/
+
+.text-shadow {
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.sayfa-resim {
+    /* max-width: 100%;
+    max-height: 20rem; */
+}
+
+/* Parallax */
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /*
 * Sosyal Medya

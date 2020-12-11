@@ -11,8 +11,7 @@
             <?php foreach($hizmetler as $hizmet) : ?>     
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <div class="card-img-wrapper">
-                       
+                    <div class="card-img-wrapper">                       
                         <img class="card-img-top" src="<?= $hizmet->resim ? (IMAGE_PATH . $hizmet->resim) : ''; ?>" alt="Card image cap">
                     </div>
                     <div class="card-body">

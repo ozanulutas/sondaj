@@ -11,7 +11,8 @@ class Hakkimizda extends BaseController
 		$data['global'] = $this->global;
 
 		$model = new HakkimizdaModel();
-		$data['hakkimizda'] = $model->get()->getRow();	
+		$data['hakkimizda'] = $model->get()->getRow();
+		$data['jumboParallax'] = $data['hakkimizda']->parallax;
 
 		$model = new AciklamaModel();
 		$data['jumboAciklama'] = $model->where('sayfa', 'Hakkımızda')->get()->getRow()->aciklama;

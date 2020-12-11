@@ -7,5 +7,5 @@ class IletisimModel extends Model
     protected $table      = 'iletisim';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['baslik', 'email', 'telefon', 'adres'];
+    protected $allowedFields = ['baslik', 'email', 'telefon', 'adres', 'parallax'];
 }

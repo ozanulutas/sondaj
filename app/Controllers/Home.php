@@ -1,6 +1,6 @@
 <?php namespace App\Controllers;
 
-use App\Models\HizmetModel;
+use App\Models\HizmetlerModel;
 use App\Models\SliderModel;
 use App\Models\AciklamaModel;
 
@@ -11,7 +11,7 @@ class Home extends BaseController
 		$data['jumboBaslik'] = 'Ana Sayfa';
 		$data['global'] = $this->global;
 
-		$model = new HizmetModel();
+		$model = new HizmetlerModel();
 		$data['hizmetler'] = $model->get()->getResult();
 
 		$model = new AciklamaModel();

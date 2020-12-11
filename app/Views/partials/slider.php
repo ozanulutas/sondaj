@@ -5,7 +5,7 @@
         <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
             <img class="first-slide d-block" src="<?= IMAGE_PATH . $sliderlar[$i]->resim ?>">
             <div class="container">
-                <div class="carousel-caption text-left">
+                <div class="carousel-caption text-left text-shadow">
                     <h1><?= $sliderlar[$i]->baslik ?></h1>
                     <h5><?= $sliderlar[$i]->metin ?></h5>
                     <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> -->

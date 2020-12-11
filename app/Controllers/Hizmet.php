@@ -2,6 +2,7 @@
 
 use App\Models\HizmetModel;
 use App\Models\AciklamaModel;
+use App\Models\HizmetlerModel;
 
 class Hizmet extends BaseController
 {
@@ -10,11 +11,16 @@ class Hizmet extends BaseController
 		$data['jumboBaslik'] = 'Hizmetlerimiz';
 		$data['global'] = $this->global;
 		
-		$model = new HizmetModel();
+		$model = new HizmetlerModel();
 		$data['hizmetler'] = $model->get()->getResult();
+
+		$model = new HizmetModel();
+		$data['hizmet'] = $model->get()->getRow();
 
 		$model = new AciklamaModel();
 		$data['jumboAciklama'] = $model->where('sayfa', 'Hizmetler')->get()->getRow()->aciklama;
+
+		$data['jumboParallax'] = $data['hizmet']->parallax;
 
 		return view('hizmet/index', $data);
     }
@@ -24,7 +30,7 @@ class Hizmet extends BaseController
 	{	
 		$data['global'] = $this->global;
 			
-		$model = new HizmetModel();
+		$model = new HizmetlerModel();
 		$data['hizmet'] = $model->where('id', $id)->get()->getRow();	
 
 		$data['jumboBaslik'] = $data['hizmet']->baslik;

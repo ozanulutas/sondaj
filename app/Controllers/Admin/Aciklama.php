@@ -9,7 +9,7 @@ class Aciklama extends BaseController
 	{
 		helper(['form']);
 		
-		$data['dashBaslik'] = 'Sayfa Açıklamaları';
+		$data['dashBaslik'] = 'Sayfa Başlık Açıklamaları';
 
 		$model = new AciklamaModel();
 		$data['aciklamalar'] = $model->get()->getResult();	

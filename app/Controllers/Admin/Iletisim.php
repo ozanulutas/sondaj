@@ -1,7 +1,6 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\IletisimModel;
-// use App\Models\SosyalMedyaModel;
 use App\Controllers\BaseController;
 
 class Iletisim extends BaseController
@@ -15,8 +14,6 @@ class Iletisim extends BaseController
 		$model = new IletisimModel();
 		$data['iletisim'] = $model->get()->getRow();
 
-		// $model = new SosyalMedyaModel();
-		// $data['sosyalMedya'] = $model->get()->getResult();
 		$data['sosyalMedyalar'] = $this->global['sosyalMedya'];
 
 
@@ -51,8 +48,17 @@ class Iletisim extends BaseController
 						'required' => 'Adres alanını boş bırakamazınız.',
 						'max_length' => 'Adres alanına en fazla 255 karakter yazabilirsiniz.'
 					]
+				],
+				'parallax' => [
+					'rules' => 'is_image[parallax]|max_size[parallax,1024]',
+					'errors' => [
+						'is_image' => 'Parallax için sadece resim dosyaları desteklenmektedir.',
+						'max_size' => 'Parallax resmi için en fazla 1 mb dosya boyutu desteklenmektedir.',
+					]
 				]
 			];
+
+			if(empty($_POST['parallax'])) unset($rules['parallax']);
 
 			if(! $this->validate($rules)) {
 				$data['validation'] = $this->validator;
@@ -61,14 +67,37 @@ class Iletisim extends BaseController
 			else {
 				
 				$model = new IletisimModel();
+
+				$parallax = $this->request->getFile('parallax');
+				if($parallax) {					
+					if($parallax->getName()) {
+						$_POST['parallax'] = $this->resimUpload($parallax);
+						$this->eskiResimSil($data['iletisim']->parallax);
+					}
+				}
+
 				$model->save($_POST);
 				
-				session()->setFlashdata('success', '"İletişim" bilgileriniz başarıyla güncellendi.');
+				session()->setFlashdata('success', 'İletişim bilgileriniz başarıyla güncellendi.');
 				return redirect()->to('edit');
 			}
 		}
 
 		return view('iletisim/admin/edit', $data);
+	}
+
+
+	public function resimKaldir($resim)
+	{
+		$model = new IletisimModel();	
+		$iletisim = $model->get()->getRow();	
+
+		$this->eskiResimSil($iletisim->$resim);
+		$model->set($resim, NULL)->update();
+
+		session()->setFlashdata('success', 'Resim başarıyla kaldırıldı.');
+		return redirect()->to('/admin/Iletisim/edit');
+		
 	}
 
 	//--------------------------------------------------------------------

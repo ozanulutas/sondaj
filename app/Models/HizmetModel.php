@@ -7,5 +7,5 @@ class HizmetModel extends Model
     protected $table      = 'hizmet';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['baslik', 'aciklama', 'metin', 'resim'];
+    protected $allowedFields = ['baslik', 'metin', 'resim', 'parallax'];
 }

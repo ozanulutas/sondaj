@@ -11,6 +11,7 @@ class Iletisim extends BaseController
 		$data['jumboBaslik'] = 'İletişim';
 		$data['global'] = $this->global;
 
+		$data['jumboParallax'] = $data['global']['iletisim']->parallax;
 		$model = new AciklamaModel();
 		$data['jumboAciklama'] = $model->where('sayfa', 'İletişim')->get()->getRow()->aciklama;
 

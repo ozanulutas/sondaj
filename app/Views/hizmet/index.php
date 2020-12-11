@@ -5,6 +5,20 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
+        <div class="row featurette">            
+            <div class="col-12">  <!-- col-md-7 order-md-2 -->
+                <?php if(! empty($hizmet->resim)) : ?>
+                <img class="featurette-image img-fluid img-thumbnail mx-auto pull-left mr-md-2" src="<?= IMAGE_PATH . $hizmet->resim ?>" alt="Generic placeholder image">
+                <?php endif; ?>
+                <h2 class="featurette-heading "><?= $hizmet->baslik ?></h2>
+                <p class="lead text-justify"><?= nl2br($hizmet->metin) ?></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
         <div class="row">  
 
             <?php foreach($hizmetler as $hizmet) : ?>     

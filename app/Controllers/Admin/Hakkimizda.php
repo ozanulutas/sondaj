@@ -35,14 +35,14 @@ class Hakkimizda extends BaseController
 				'resim' => [
 					'rules' => 'is_image[resim]|max_size[resim,1024]',
 					'errors' => [
-						'is_image' => 'Sadece PNG, JPG ve GIF formatındaki resim dosyaları desteklenmektedir.',
+						'is_image' => 'Sadece sadece resim dosyaları desteklenmektedir.',
 						'max_size' => 'En fazla 1 mb dosya boyutu desteklenmektedir.',
 					]
 				],
 				'parallax' => [
-					'rules' => 'ext_in[parallax,png,jpg,gif]ax]|max_size[parallax,1024]',
+					'rules' => 'is_image[parallax]|max_size[parallax,1024]',
 					'errors' => [
-						'ext_in' => 'Parallax sadece PNG, JPG ve GIF formatındaki resim dosyaları desteklenmektedir.',
+						'is_image' => 'Parallax için sadece resim dosyaları desteklenmektedir.',
 						'max_size' => 'Parallax resmi için en fazla 1 mb dosya boyutu desteklenmektedir.',
 					]
 				]
@@ -64,18 +64,18 @@ class Hakkimizda extends BaseController
 				
 				// echo "<div style='margin:10rem'>";
 				// echo "<pre>";
-				// print_r($parallax);
+				// print_r($resim);
 				// echo "</pre>";
 				// echo "</div>";
 				if($resim) {
 					if($resim->getName()) {
 						$_POST['resim'] = $this->resimUpload($resim);
+						$this->resimManipule($_POST['resim'], 345, 345);
 						$this->eskiResimSil($data['hakkimizda']->resim);
 					}
 				}
 
-				if($parallax) {
-					
+				if($parallax) {					
 					if($parallax->getName()) {
 						$_POST['parallax'] = $this->resimUpload($parallax);
 						$this->eskiResimSil($data['hakkimizda']->parallax);
